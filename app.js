@@ -89,19 +89,7 @@ function drawcard(){
 }
 
 function drawresult(result, data){
-  let resulttemplate = `
-  <div class="card text-center">
-  <h3>I choose</h3>
-  <img src="${data.img}" class="card-img-top" alt="...">
-  <div class="card-image-overlay">
-    <h1>${data.name}</h1>
-  </div>
-  <div class="card-body">
-    <p class="card-text"> Just like you.</p>
-    <h1>Again?</h1>
-  </div>
-  <img src="./again.jpg" class="card-img-top" alt="...">
-</div>`
+  let resulttemplate = ``
   if (result == "win"){
   let resulttemplate = `
   <div class="card text-center">
@@ -111,8 +99,10 @@ function drawresult(result, data){
     <h1>${data.name}</h1>
   </div>
   <div class="card-body">
-    <p class="card-text"> And I Win</p>`
-  document.getElementById("reults").innerHTML = resulttemplate
+    <p class="card-text"> And I Win</p>
+    <button type="button" class="btn btn-primary" onclick=drawcard()>play again?</button>
+    </div>`
+  document.getElementById("gamecontainer").innerHTML = resulttemplate
   }
   if (result == "lose"){
     let resulttemplate = `
@@ -126,11 +116,27 @@ function drawresult(result, data){
       <p class="card-text"> And I lose. here's your trophy:</p>
     </div>
     <img src="./win.jpg" class="card-img-top" alt="...">
+    <button type="button" class="btn btn-primary" onclick=drawcard()>play again?</button>
   </div>`
-  document.getElementById("reults").innerHTML = resulttemplate
+  document.getElementById("gamecontainer").innerHTML = resulttemplate
   }
-
-  document.getElementById("reults").innerHTML = resulttemplate
+if (result == "again"){
+  resulttemplate=`
+  <div class="card text-center">
+  <h3>I choose</h3>
+  <img src="${data.img}" class="card-img-top" alt="...">
+  <div class="card-image-overlay">
+    <h1>${data.name}</h1>
+  </div>
+  <div class="card-body">
+    <p class="card-text"> Just like you.</p>
+    <button type="button" class="btn btn-primary" onclick=drawcard()>play again?</button>
+  </div>
+  <img src="./again.jpg" class="card-img-top" alt="...">
+</div>
+  `
+  document.getElementById("gamecontainer").innerHTML = resulttemplate
+}
 }
 
   //draw lose
