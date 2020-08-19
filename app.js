@@ -2,15 +2,21 @@
 let data: [
   {
     name: "Rock",
-    loss: "Paper"
+    loss: "Paper",
+    rules: "",
+    img: ""
   }
   {
-    name: "Paper"
-    loss: "Scissor"
+    name: "Paper",
+    loss: "Scissor",
+    rules: "",
+    img: ""
   }
   {
-    name: "Scissor"
-    loss: "Rock"
+    name: "Scissor",
+    loss: "Rock",
+    rules: "",
+    img: ""
   }
 ]
 
