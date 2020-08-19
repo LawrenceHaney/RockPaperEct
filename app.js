@@ -1,39 +1,142 @@
 // data
-let data: [
+let data = [
   {
     name: "Rock",
-    loss: "Paper",
+    loss: ["Paper", "Spock"],
     rules: "",
-    img: ""
-  }
+    img: "./rock.jpg"
+  },
   {
     name: "Paper",
-    loss: "Scissor",
+    loss: ["Scissor", "Lizard"],
     rules: "",
-    img: ""
-  }
+    img: "./paper.jpg"
+  },
   {
     name: "Scissor",
-    loss: "Rock",
+    loss: ["Rock", "Spock"],
     rules: "",
-    img: ""
+    img: "./scissor.jpg"
+  },  
+  {
+    name: "Spock",
+    loss: ["Lizard", "Disaproves"],
+    rules: "",
+    img: "./spock.jpg"
+  },  
+  {
+    name: "Lizard",
+    loss: ["Rock", "Scissor"],
+    rules: "",
+    img: "./lizzard.jpg"
   }
 ]
 
 // Game
-thowhand(data){
-//findNPCelement
-  //acesse data
-  //set NPC arry to RND choice using MATH.Random
+function result(name){
 //findPlayerelemnt.loss
-  //compareplayer element.loss to NPC choice
-    //if loss "I win"
-    //if win "how about another hand?"
+let player= findbyname(name)
+let npcchoice= choice()
+let npcrule= npcchoice.loss
+let loss = npcrule.includes(player.name)
+// let npcchoiceloss= npcchoice.loss
+//acesse data
+if(npcchoice == player){
+  drawresult("again", npcchoice)
+return
+}
+  if(loss == true){
+    drawresult("win", npcchoice)
+  return
+  }
+  drawresult("lose", npcchoice)
+  }
+
+
+
+//randomizer'
+function choice(){
+  let r = Math.floor(Math.random() * data.length - 0.01)
+  
+  return data[r]
+  //output data[r]
+}
+//find
+function findbyname(name){
+  let currentdata = data.find(a=> a.name == name)
+  return currentdata
 }
 
-//Draw
-drawcard(data)
-template= ''
-data.forEach(element => {
-});
 
+//Draw
+function drawcard(){
+  let template = " "
+  //for loop to access all choices for player
+  for (let i = 0; i <data.length; i++){
+    const move = data[i];
+    template += `
+    <div class="card" style="width: 18rem;">
+  <img src="${move.img}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">${move.name}</h5>
+    <p class="card-text">${move.rules}</p>
+    <button type="button" class="btn btn-primary" onclick="result('${move.name}')">${move.name}</button>
+  </div>
+</div>
+  `
+  }
+  document.getElementById("gamecontainer").innerHTML = template
+}
+
+function drawresult(result, data){
+  let resulttemplate = `
+  <div class="card text-center">
+  <h3>I choose</h3>
+  <img src="${data.img}" class="card-img-top" alt="...">
+  <div class="card-image-overlay">
+    <h1>${data.name}</h1>
+  </div>
+  <div class="card-body">
+    <p class="card-text"> Just like you.</p>
+    <h1>Again?</h1>
+  </div>
+  <img src="./again.jpg" class="card-img-top" alt="...">
+</div>`
+  if (result == "win"){
+  let resulttemplate = `
+  <div class="card text-center">
+  <h3>I choose</h3>
+  <img src="${data.img}" class="card-img-top" alt="...">
+  <div class="card-image-overlay">
+    <h1>${data.name}</h1>
+  </div>
+  <div class="card-body">
+    <p class="card-text"> And I Win</p>`
+  document.getElementById("reults").innerHTML = resulttemplate
+  }
+  if (result == "lose"){
+    let resulttemplate = `
+    <div class="card text-center">
+    <h3>I choose</h3>
+    <img src="${data.img}" class="card-img-top" alt="...">
+    <div class="card-image-overlay">
+      <h1>${data.name}</h1>
+    </div>
+    <div class="card-body">
+      <p class="card-text"> And I lose. here's your trophy:</p>
+    </div>
+    <img src="./win.jpg" class="card-img-top" alt="...">
+  </div>`
+  document.getElementById("reults").innerHTML = resulttemplate
+  }
+
+  document.getElementById("reults").innerHTML = resulttemplate
+}
+
+  //draw lose
+
+  //draw again?
+
+
+
+drawcard()

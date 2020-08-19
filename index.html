@@ -13,15 +13,11 @@
   </header>
 
   <body class="container">
-    <main class="col-12 bg-light">
-      <div class="card" style="width: 18rem;">
-        <img src="${data.img}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">${data.name}</h5>
-          <p class="card-text">${data.rules}</p>
-          <a class="btn btn-primary" onclick="throwhand(${data.name})">Go somewhere</a>
-        </div>
-      </div>
+    <main>
+    <section class= text-center><h1>Your Choice</h1></section>
+    <section id="gamecontainer" class="col-12 bg-light d-flex space-around"></section>
+    <section id="reults" class="col-12 bg-light d-flex space-around"></section>
+    
     </main>
   </body>
 
@@ -29,6 +25,7 @@
     <p class="col-12">Thanks for playing</p>
   </footer>
   
-  <script src="./app.js"></script>
+  <script src="app.js"></script>
+  <script src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous'></script> <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous'></script> <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous'></script>
 </body>
 </html>
