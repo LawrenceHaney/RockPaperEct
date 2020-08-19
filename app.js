@@ -75,8 +75,8 @@ function drawcard(){
   for (let i = 0; i <data.length; i++){
     const move = data[i];
     template += `
-    <div class="card" style="width: 18rem;">
-  <img src="${move.img}" class="card-img-top" alt="...">
+    <div class="card m-auto" style="width: 18rem;">
+  <img src="${move.img}" class="card-img-top game-img" alt="...">
   <div class="card-body">
     <h5 class="card-title">${move.name}</h5>
     <p class="card-text">${move.rules}</p>
@@ -92,7 +92,7 @@ function drawresult(result, data){
   let resulttemplate = ``
   if (result == "win"){
   let resulttemplate = `
-  <div class="card text-center">
+  <div class="card text-center justify-self-center">
   <h3>I choose</h3>
   <img src="${data.img}" class="card-img-top" alt="...">
   <div class="card-image-overlay">
@@ -106,7 +106,7 @@ function drawresult(result, data){
   }
   if (result == "lose"){
     let resulttemplate = `
-    <div class="card text-center">
+    <div class="card text-center justify-self-center">
     <h3>I choose</h3>
     <img src="${data.img}" class="card-img-top" alt="...">
     <div class="card-image-overlay">
@@ -115,14 +115,14 @@ function drawresult(result, data){
     <div class="card-body">
       <p class="card-text"> And I lose. here's your trophy:</p>
     </div>
-    <img src="./win.jpg" class="card-img-top" alt="...">
+    <img src="./win.jpg" class="card-img-top results-img" alt="...">
     <button type="button" class="btn btn-primary" onclick=drawcard()>play again?</button>
   </div>`
   document.getElementById("gamecontainer").innerHTML = resulttemplate
   }
 if (result == "again"){
   resulttemplate=`
-  <div class="card text-center">
+  <div class="card text-center justify-self-center">
   <h3>I choose</h3>
   <img src="${data.img}" class="card-img-top" alt="...">
   <div class="card-image-overlay">
